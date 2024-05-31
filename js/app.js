@@ -40,7 +40,9 @@ const app = Vue.createApp({
     return{
       mensaje: 'Hola Mundo propiedad Reactiva',
       valor: 7,
-      lista: estudiantes
+      lista: estudiantes,
+      nombre: null,
+      apellido: null
     }
   },
   methods: {
@@ -53,7 +55,28 @@ const app = Vue.createApp({
       this.valor = this.valor + 10000000000000000009;
     },
     agregarEstu(){
-      this.lista.unshift({nombre: 'Francisco', apellido: 'chanataxi'});
+
+      console.log(this.nombre);
+      console.log(this.apellido);
+
+      const nuevo ={
+        nombre: this.nombre,
+        apellido: this.apellido
+      }
+      
+      this.lista.unshift(nuevo);
+    },
+
+    resetear(){
+      this.nombre = null;
+      this.apellido = null;
+    },
+
+    agregar2({charCode}){
+      console.log(charCode);
+
+      //(charCode !==13) return;
+      this.agregarEstu();
     }
 
   }

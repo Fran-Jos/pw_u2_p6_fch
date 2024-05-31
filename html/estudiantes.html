@@ -15,7 +15,13 @@
         <nav></nav>
         <section>
 
-            <button v-on:click="agregarEstu">agregue estudiante</button>
+            <label for="idNombre">NOMBRE:</label>
+            <input  v-model="nombre" type="text"  id="idNombre">
+            <label for="idApellido">APELLIDO:</label>
+            <input @keypress.enter="agregar2"  v-model="apellido"  type="text"  id="idApellido">
+          <!--  <button v-on:click="agregarEstu">agregue estudiante</button>
+           <button v-on:click="resetear">resetear</button>
+          -->
             <ul>
            <!-- <li>{{lista[1].nombre}} A: {{lista[1].apellido}}</li>
             <br>
@@ -24,8 +30,8 @@
             <li>{{lista[3]}}</li>
             -->
             <li v-for="({nombre , apellido},index) in lista">  
-                <h3>{{index + 1}} --- ---{{nombre}}</h3>
-               <h4>{{apellido}}</h4>
+                <h3 v-show="nombre !== null" >{{index + 1}} --- ---{{nombre}}</h3>
+               <h4 v-show="apellido !== null">{{apellido}}</h4>
             </li>
         </ul>
         </section>
